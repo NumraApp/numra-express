@@ -1,5 +1,5 @@
 import type { Router, Request, Response } from 'express';
-import type { Numra, NumraError } from '@numra/core';
+import type { Numra, NumraError } from '@getnumra/core';
 
 export interface NumraRouterOptions {
   /** Numra credential. Server-side only. */
@@ -41,4 +41,4 @@ export declare function numraRouter(options?: NumraRouterOptions): Router;
  */
 export declare function captureRawBody(req: Request, res: Response, buf: Buffer): void;
 
-export { Numra, NumraError } from '@numra/core';
+export { Numra, NumraError } from '@getnumra/core';

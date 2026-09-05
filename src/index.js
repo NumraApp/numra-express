@@ -1,18 +1,18 @@
 import express from 'express';
-import { Numra, createHandlers } from '@numra/core';
+import { Numra, createHandlers } from '@getnumra/core';
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   @numra/express — the endpoint the browser packages talk to
+   @getnumra/express — the endpoint the browser packages talk to
    ───────────────────────────────────────────────────────────────────────────
-   The browser half of this family (@numra/react and friends) deliberately
+   The browser half of this family (@getnumra/react and friends) deliberately
    cannot reach api.numra.ma: a key in a bundle reads a shared fraud ledger.
    They call the merchant's own backend instead — and this router IS that
-   backend. Mount it, and @numra/react works with no glue.
+   backend. Mount it, and @getnumra/react works with no glue.
 
        app.use('/api/numra', numraRouter({ apiKey, authorize }));
 
    The decisions — deny by default, what the browser may see, how an upstream
-   failure is translated — all live in @numra/core's createHandlers, shared
+   failure is translated — all live in @getnumra/core's createHandlers, shared
    with the Fastify, Next and Nuxt packages. Four copies of "deny by default"
    is four chances for one of them to quietly become "allow by default".
    This file is only the Express-shaped wrapper around them.
@@ -100,4 +100,4 @@ export function captureRawBody(req, _res, buf) {
   if (buf?.length) req.rawBody = Buffer.from(buf);
 }
 
-export { Numra, NumraError } from '@numra/core';
+export { Numra, NumraError } from '@getnumra/core';
